@@ -26,7 +26,7 @@
     function createContent(){
         var $ul = $('.task-list ul');
 
-        $.post('api/read.php', function( data ) {
+        $.post('api/read', function( data ) {
             if(data.success){
                 data.data.forEach( function(element){
                     var new_li = '<li> <span>'+element.task+'</span> <img id="'+element.id+'" class="delete-button" width="10px" src="resources/images/close.svg"> </li>';
@@ -44,7 +44,7 @@
 
             if(new_task != ''){
 
-                $.post('api/add.php', { task: new_task }, function( data ) {
+                $.post('api/add', { task: new_task }, function( data ) {
 
                     console.log(data);
 
@@ -69,7 +69,7 @@
 
             var id = $(this).attr('id');
 
-            $.post('api/delete.php', { id: id }, function(data) {
+            $.post('api/delete', { id: id }, function(data) {
 
                 if(data.success){
                     current_element.parent().fadeOut("fast", function() { $(this).remove(); });

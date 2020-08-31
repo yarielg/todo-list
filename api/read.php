@@ -10,4 +10,5 @@ include_once '../Models/Task.php';
 $task = new Task();
 
 $tasks = $task->getTasks();
+
 echo json_encode($tasks);
